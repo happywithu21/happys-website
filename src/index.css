@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Inter:wght@400;500;700;900&display=swap');
+
+:root {
+  --bg-color: #0a0a0a;
+  /* Deepened the background for more contrast */
+  --text-main: #eeede4;
+  /* Bone White */
+  --text-dim: #eeede480;
+  --brand-orange: #ff5500;
+  --header-height: 80px;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(238, 237, 228, 0.08);
+  --orange-glow: rgba(255, 85, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  cursor: none !important;
+}
+
+.mono {
+  font-family: 'Fragment Mono', monospace;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Data-Science Aesthetic: Dot Grid */
+.dot-grid {
+  background-image: radial-gradient(rgba(238, 237, 228, 0.05) 1px, transparent 0);
+  background-size: 30px 30px;
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.2;
+  background-image: url("https://framerusercontent.com/images/nfauNhlOo2KJhNyZZF9zh56jAGE.webp");
+}
+
+/* Updated Glow & Glass Cards */
+.data-border {
+  border: 1px solid var(--card-border);
+}
+
+.data-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.data-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(238, 237, 228, 0.05) 0%, transparent 100%);
+  z-index: -1;
+}
+
+.data-card:hover {
+  border-color: rgba(255, 85, 0, 0.4);
+  background: rgba(255, 85, 0, 0.01);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px var(--orange-glow);
+}
+
+.section-label {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  color: var(--brand-orange);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: var(--brand-orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: normal;
+  /* Normal for orange to pop */
+  box-shadow: 0 0 10px var(--brand-orange);
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 6vw;
+}
+
+h1 {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.nav-link {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-main);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: var(--brand-orange);
+}
+
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
