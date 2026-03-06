@@ -38,11 +38,11 @@ export default function Certificates() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="container" style={{ padding: '15vh 0' }}>
-            <div style={{ marginBottom: '6rem' }}>
+        <section className="container" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
+            <div style={{ marginBottom: 'clamp(3rem, 6vw, 6rem)' }}>
                 <span className="section-label">CREDENTIAL_VAULT / 003</span>
-                <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', margin: 0 }}>
-                    Verified <span style={{ color: 'var(--brand-orange)' }}>Academic & Technical</span> Credentials.
+                <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', margin: 0 }}>
+                    Verified <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>Academic & Technical</span> Credentials.
                 </h2>
             </div>
 

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Shield, Activity, BarChart2, Laptop } from 'lucide-react';
 
@@ -46,13 +46,67 @@ const projects = [
 
 export default function Projects() {
     const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({ target: targetRef });
+    const [isMobile, setIsMobile] = useState(false);
+    const { scrollYProgress } = useScroll({ target: isMobile ? null : targetRef });
 
-    // Transform vertical scroll to horizontal movement
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Transform vertical scroll to horizontal movement for desktop
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
+    if (isMobile) {
+        return (
+            <div className="container" style={{ padding: '5vh 0' }}>
+                <span className="section-label">SELECTED_R&D_SHOWCASE</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    {projects.map((project, idx) => (
+                        <div
+                            key={project.id}
+                            className="data-card"
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '1.5rem',
+                                border: '1px solid rgba(238, 237, 228, 0.05)'
+                            }}
+                        >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <span className="mono" style={{ fontSize: '10px', opacity: 0.3 }}>INDEX_00{idx + 1}</span>
+                                <span className="mono" style={{ fontSize: '10px', color: 'var(--brand-orange)' }}>{project.category}</span>
+                            </div>
+
+                            {project.image && (
+                                <img src={project.image} alt={project.title} style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '4px', border: '1px solid rgba(255, 85, 0, 0.1)' }} />
+                            )}
+
+                            <h3 style={{ fontSize: '1.8rem', fontWeight: 900, textTransform: 'uppercase' }}>{project.title}</h3>
+
+                            <p style={{ fontSize: '1rem', opacity: 0.6, lineHeight: 1.4 }}>{project.description}</p>
+
+                            <div style={{ borderTop: '1px solid rgba(238, 237, 228, 0.05)', paddingTop: '1rem' }}>
+                                <span className="section-label" style={{ fontSize: '8px', marginBottom: '0.5rem' }}>CRITICAL_INSIGHT</span>
+                                <p className="mono" style={{ fontSize: '11px', color: 'var(--brand-orange)' }}>» {project.insight}</p>
+                            </div>
+
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+                                {project.tech.map(t => (
+                                    <span key={t} className="mono" style={{ fontSize: '9px', background: 'rgba(255, 85, 0, 0.1)', color: 'var(--brand-orange)', padding: '2px 8px' }}>{t}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div style={{ height: '300vh' }} ref={targetRef} className="dot-grid">
+        <div style={{ height: '300vh' }} ref={targetRef} className="dot-grid desktop-only">
             <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
 
                 {/* Section Title - Stays static on the left */}
@@ -175,3 +229,4 @@ export default function Projects() {
         </div>
     );
 }
+

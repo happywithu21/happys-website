@@ -17,10 +17,10 @@ const skillCategories = [
 
 export default function Skills() {
     return (
-        <section className="container" style={{ padding: '15vh 0' }}>
+        <section className="container" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
             <span className="section-label">TECHNICAL_ARSENAL</span>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', marginBottom: '6rem', maxWidth: '800px' }}>
-                Translating complex datasets into <span style={{ color: 'var(--brand-orange)' }}>strategic intelligence.</span>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', marginBottom: 'clamp(3rem, 6vw, 6rem)', maxWidth: '800px' }}>
+                Translating complex datasets into <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>strategic intelligence.</span>
             </h2>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2vw' }}>

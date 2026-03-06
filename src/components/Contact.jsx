@@ -3,20 +3,27 @@ import { Mail, Github, Linkedin, MessageSquare, Send } from 'lucide-react';
 
 export default function Contact() {
     return (
-        <section className="container" style={{ padding: '15vh 0 10vh 0' }}>
-            <div className="dot-grid data-card" style={{ padding: '6rem', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '6vw', background: 'rgba(255, 85, 0, 0.02)', borderColor: 'rgba(255, 85, 0, 0.2)' }}>
+        <section className="container" id="contact" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0 clamp(5vh, 10vh, 10vh) 0' }}>
+            <div className="dot-grid data-card" style={{
+                padding: 'clamp(2rem, 5vw, 6rem)',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '6vw',
+                background: 'rgba(255, 85, 0, 0.02)',
+                borderColor: 'rgba(255, 85, 0, 0.2)'
+            }}>
 
                 {/* Left Side: Messaging */}
                 <div>
                     <span className="section-label">COMMUNICATION_PROTOCOL / 004</span>
-                    <h2 style={{ fontSize: 'clamp(2rem, 6vw, 5rem)', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.02em' }}>
+                    <h2 style={{ fontSize: 'clamp(1.8rem, 6vw, 5rem)', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.02em' }}>
                         READY TO <span style={{ color: 'var(--brand-orange)' }}>OPTIMIZE?</span>
                     </h2>
                     <p style={{ fontSize: '1.2rem', opacity: 0.7, lineHeight: 1.6, maxWidth: '500px', marginBottom: '4rem' }}>
                         Open for advanced projects in Machine Learning, Statistical Analysis, and Architectural Optimization. Let's build something intelligent.
                     </p>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
                         <div className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                             <div style={{ color: 'var(--brand-orange)' }}><Mail size={20} /></div>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -35,8 +42,14 @@ export default function Contact() {
                 </div>
 
                 {/* Right Side: Quick Action / Form Style */}
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid rgba(238,237,228,0.05)', paddingLeft: '6vw' }}>
-                    <div style={{ background: 'rgba(0,0,0,0.3)', padding: '2rem', border: '1px solid rgba(238,237,228,0.1)' }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    borderLeft: '1px solid rgba(238,237,228,0.05)',
+                    paddingLeft: 'clamp(0px, 6vw, 6vw)'
+                }} className="contact-form-side">
+                    <div style={{ background: 'rgba(0,0,0,0.3)', padding: 'clamp(1.5rem, 4vw, 2rem)', border: '1px solid rgba(238,237,228,0.1)' }}>
                         <span className="mono" style={{ fontSize: '10px', opacity: 0.3, display: 'block', marginBottom: '2rem' }}>[ SYSTEM_QUICK_CONNECT ]</span>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

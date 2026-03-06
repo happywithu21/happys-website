@@ -35,17 +35,24 @@ function App() {
       }}>
 
         {/* Professional Header Navigation */}
-        <header className="header-nav" style={{ height: '100px', borderBottom: '1px solid rgba(238,237,228,0.05)' }}>
+        <header className="header-nav" style={{
+          height: '100px',
+          borderBottom: '1px solid rgba(238,237,228,0.05)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '0 6vw'
+        }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             <div style={{ fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
               HARSHITA GOUR<span style={{ color: 'var(--brand-orange)' }}>™</span>
             </div>
-            <div className="mono" style={{ fontSize: '10px', opacity: 0.3, padding: '4px 10px', border: '1px solid rgba(238,237,228,0.1)', borderRadius: '20px' }}>
+            <div className="mono desktop-only" style={{ fontSize: '10px', opacity: 0.3, padding: '4px 10px', border: '1px solid rgba(238,237,228,0.1)', borderRadius: '20px' }}>
               DS_ENGINE_v1.0.4
             </div>
           </div>
 
-          <nav style={{ display: 'flex', gap: '30px' }}>
+          <nav style={{ display: 'flex', gap: '30px' }} className="desktop-only">
             <a href="#terminal" className="nav-link interactive">ID_SYSTEM</a>
             <a href="#skills" className="nav-link interactive">ARSENAL</a>
             <a href="#certificates" className="nav-link interactive">CREDENTIALS</a>
@@ -53,7 +60,7 @@ function App() {
             <a href="#contact" className="nav-link interactive">CONTACT</a>
           </nav>
 
-          <div className="mono" style={{ fontSize: '12px', opacity: 0.5 }}>
+          <div className="mono desktop-only" style={{ fontSize: '12px', opacity: 0.5 }}>
             {new Date().toLocaleTimeString()}
           </div>
         </header>
@@ -62,13 +69,13 @@ function App() {
           <div id="about"><Hero /></div>
           <div id="terminal"><Terminal /></div>
 
-          <div style={{ height: '30vh' }} />
+          <div style={{ height: '20vh' }} />
           <div id="skills"><Skills /></div>
 
-          <div style={{ height: '30vh' }} />
+          <div style={{ height: '20vh' }} />
           <div id="certificates"><Certificates /></div>
 
-          <div style={{ height: '30vh' }} />
+          <div style={{ height: '20vh' }} />
           <div id="projects"><Projects /></div>
 
           <div style={{ height: '10vh' }} />
@@ -76,13 +83,17 @@ function App() {
         </main>
 
         <footer style={{ padding: '8vw 6vw', borderTop: '1px solid rgba(238,237,228,0.05)', background: 'rgba(0,0,0,0.2)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr', gap: '4vw' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '4rem'
+          }}>
             <div>
               <span className="section-label">CONTACT_CLUSTER</span>
-              <p style={{ fontSize: '1.5rem', marginBottom: '2rem', maxWidth: '400px' }}>
+              <p style={{ fontSize: '1.2rem', marginBottom: '2rem', maxWidth: '400px' }}>
                 Open for collaborations in Predictive Modeling and Data Engineering.
               </p>
-              <div style={{ display: 'flex', gap: '2rem' }}>
+              <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                 <a href="mailto:gourharshita850@gmail.com" className="nav-link interactive" style={{ opacity: 1, color: 'var(--brand-orange)' }}>EMAIL_INQUIRY</a>
                 <a href="https://www.linkedin.com/in/harshitaagourr/" target="_blank" rel="noopener noreferrer" className="nav-link interactive">LINKEDIN_SYS</a>
               </div>
@@ -98,7 +109,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ textAlign: 'right' }}>
+            <div className="desktop-only" style={{ textAlign: 'right' }}>
               <span className="section-label">IDENTITY</span>
               <div style={{ fontSize: '3rem', fontWeight: 900, opacity: 0.05, letterSpacing: '-0.05em' }}>
                 HARSHITA

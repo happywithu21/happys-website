@@ -46,7 +46,7 @@ export default function Terminal() {
     }, [history, displayedQuery]);
 
     return (
-        <section className="container" style={{ padding: '10vh 0' }}>
+        <section className="container" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
             <span className="section-label">SYSTEM_TERMINAL / QUERY_BY_RESEARCHER</span>
 
             <div
@@ -54,11 +54,13 @@ export default function Terminal() {
                 style={{
                     background: '#0a0a0a',
                     border: '1px solid rgba(238, 237, 228, 0.1)',
-                    padding: '2rem',
-                    height: '400px',
+                    padding: 'clamp(1rem, 3vw, 2rem)',
+                    height: 'clamp(300px, 60vh, 400px)',
                     display: 'flex',
                     flexDirection: 'column',
-                    boxShadow: '0 0 40px rgba(0,0,0,0.5)'
+                    boxShadow: '0 0 40px rgba(0,0,0,0.5)',
+                    wordBreak: 'break-word',
+                    whiteSpace: 'pre-wrap'
                 }}
             >
                 <div style={{ display: 'flex', gap: '8px', marginBottom: '1.5rem', borderBottom: '1px solid rgba(238,237,228,0.05)', paddingBottom: '1rem' }}>
