@@ -101,7 +101,7 @@ export default function CertificateModal({ isOpen, onClose }) {
                                 <h4 style={{ fontSize: '1.1rem', fontWeight: 600, letterSpacing: '-0.01em' }}>{cert.title}</h4>
 
                                 <a
-                                    href={`/src/assets/certs/${cert.file}`}
+                                    href={`/certs/${cert.file}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="interactive mono"

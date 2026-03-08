@@ -8,28 +8,28 @@ const certs = [
         id: '01',
         title: 'PYTHON PROGRAMMING',
         issuer: 'PROFESSIONAL CERTIFICATION',
-        file: '/src/assets/certs/cert_python.pdf',
+        file: '/certs/cert_python.pdf',
         status: 'VERIFIED_RECORD'
     },
     {
         id: '02',
         title: 'FROM DATA TO INSIGHTS',
         issuer: 'ANALYTICS SPECIALIZATION',
-        file: '/src/assets/certs/cert_insights.pdf',
+        file: '/certs/cert_insights.pdf',
         status: 'SYSTEM_VALIDATED'
     },
     {
         id: '03',
         title: 'DATA STRUCTURES & ALGORITHMS',
         issuer: 'COMPUTATIONAL LOGIC',
-        file: '/src/assets/certs/cert_dsa.pdf',
+        file: '/certs/cert_dsa.pdf',
         status: 'OPTIMAL_PERFORMANCE'
     },
     {
         id: '04',
         title: 'COMPUTATIONAL THEORY',
         issuer: 'FINITE AUTOMATA & LANGUAGES',
-        file: '/src/assets/certs/cert_theory.pdf',
+        file: '/certs/cert_theory.pdf',
         status: 'ACADEMIC_EXCELLENCE'
     }
 ];
