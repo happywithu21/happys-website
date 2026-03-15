@@ -18,7 +18,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section ref={containerRef} className="dot-grid" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+        <section ref={containerRef} className="dot-grid" style={{ minHeight: '85vh', display: 'flex', alignItems: 'flex-start' }}>
 
             <div className="container" style={{
                 zIndex: 10,
@@ -26,8 +26,8 @@ export default function Hero() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                 gap: '4vw',
                 alignItems: 'center',
-                paddingTop: '15vh',
-                paddingBottom: '10vh'
+                paddingTop: '8vh', /* Reduced from 15vh */
+                paddingBottom: '5vh'
             }}>
 
                 {/* Left: Professional Bio & Identity */}
