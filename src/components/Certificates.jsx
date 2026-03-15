@@ -62,7 +62,7 @@ export default function Certificates() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="data-card"
+                        className="data-card glow-purple"
                         style={{ position: 'relative', overflow: 'hidden', height: '100%' }}
                     >
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
