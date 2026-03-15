@@ -147,20 +147,6 @@ export default function Hero() {
                             </motion.div>
                         </div>
                     </div>
-
-                    <div style={{ marginTop: '1.5rem', height: '40px', width: '100%', position: 'relative', overflow: 'hidden', zIndex: 2 }}>
-                        <svg width="100%" height="40" style={{ opacity: 0.5 }}>
-                            <motion.path
-                                d="M 0 20 Q 25 5 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20"
-                                fill="transparent"
-                                stroke="var(--brand-orange)"
-                                strokeWidth="2"
-                                animate={{ x: [-100, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                            />
-                        </svg>
-                        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', background: 'var(--brand-orange)', opacity: 0.3 }} />
-                    </div>
                 </motion.div>
 
             </div>
