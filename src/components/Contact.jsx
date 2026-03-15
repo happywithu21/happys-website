@@ -15,26 +15,26 @@ export default function Contact() {
 
                 {/* Left Side: Messaging */}
                 <div>
-                    <span className="section-label">COMMUNICATION_PROTOCOL / 004</span>
+                    <span className="section-label">GET IN TOUCH / 004</span>
                     <h2 style={{ fontSize: 'clamp(1.8rem, 6vw, 5rem)', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.02em' }}>
-                        READY TO <span style={{ color: 'var(--brand-orange)' }}>OPTIMIZE?</span>
+                        READY TO <span style={{ color: 'var(--brand-orange)' }}>CONNECT?</span>
                     </h2>
                     <p style={{ fontSize: '1.2rem', opacity: 0.7, lineHeight: 1.6, maxWidth: '500px', marginBottom: '4rem' }}>
-                        Open for advanced projects in Machine Learning, Statistical Analysis, and Architectural Optimization. Let's build something intelligent.
+                        Open for collaborations in Software Development, Web Design, and Data Analysis. Let's build something great together.
                     </p>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
                         <div className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                             <div style={{ color: 'var(--brand-orange)' }}><Mail size={20} /></div>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span className="mono" style={{ fontSize: '9px', opacity: 0.4 }}>DIRECT_MAIL</span>
+                                <span className="mono" style={{ fontSize: '9px', opacity: 0.4 }}>EMAIL</span>
                                 <a href="mailto:gourharshita850@gmail.com" style={{ fontSize: '14px', color: 'var(--text-main)', textDecoration: 'none' }}>gourharshita850@gmail.com</a>
                             </div>
                         </div>
                         <div className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                             <div style={{ color: 'var(--brand-orange)' }}><Linkedin size={20} /></div>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span className="mono" style={{ fontSize: '9px', opacity: 0.4 }}>NETWORK_SYS</span>
+                                <span className="mono" style={{ fontSize: '9px', opacity: 0.4 }}>LINKEDIN</span>
                                 <a href="https://www.linkedin.com/in/harshitaagourr/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', color: 'var(--text-main)', textDecoration: 'none' }}>harshitaagourr</a>
                             </div>
                         </div>
@@ -50,16 +50,16 @@ export default function Contact() {
                     paddingLeft: 'clamp(0px, 6vw, 6vw)'
                 }} className="contact-form-side">
                     <div style={{ background: 'rgba(0,0,0,0.3)', padding: 'clamp(1.5rem, 4vw, 2rem)', border: '1px solid rgba(238,237,228,0.1)' }}>
-                        <span className="mono" style={{ fontSize: '10px', opacity: 0.3, display: 'block', marginBottom: '2rem' }}>[ SYSTEM_QUICK_CONNECT ]</span>
+                        <span className="mono" style={{ fontSize: '10px', opacity: 0.3, display: 'block', marginBottom: '2rem' }}>[ QUICK CONTACT ]</span>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             <div style={{ borderBottom: '1px solid rgba(238,237,228,0.1)', paddingBottom: '0.5rem' }}>
-                                <span className="mono" style={{ fontSize: '9px', opacity: 0.5 }}>NAME_INPUT</span>
-                                <p className="mono" style={{ fontSize: '13px', margin: '5px 0' }}>// TYPE_HERE</p>
+                                <span className="mono" style={{ fontSize: '9px', opacity: 0.5 }}>YOUR NAME</span>
+                                <p className="mono" style={{ fontSize: '13px', margin: '5px 0' }}>// ENTER_NAME</p>
                             </div>
                             <div style={{ borderBottom: '1px solid rgba(238,237,228,0.1)', paddingBottom: '0.5rem' }}>
-                                <span className="mono" style={{ fontSize: '9px', opacity: 0.5 }}>MESSAGE_BUFFER</span>
-                                <p className="mono" style={{ fontSize: '13px', margin: '5px 0' }}>// TRANSMIT_DATA</p>
+                                <span className="mono" style={{ fontSize: '9px', opacity: 0.5 }}>MESSAGE</span>
+                                <p className="mono" style={{ fontSize: '13px', margin: '5px 0' }}>// WRITE_MESSAGE</p>
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@ export default function Contact() {
                                 boxShadow: '0 0 20px var(--orange-glow)'
                             }}
                         >
-                            INITIALIZE_TRANSMISSION <Send size={16} />
+                            SEND MESSAGE <Send size={16} />
                         </button>
                     </div>
 

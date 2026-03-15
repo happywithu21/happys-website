@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const commands = [
-    { query: 'cat harshita_identity.json', output: '{ "name": "Harshita Gour", "role": "Data Scientist", "focus": "Predictive Modeling / AI Architecture" }' },
-    { query: 'run academic_check.sh', output: 'Fetching records... [LPU / BTech CSE] status: Optimal. CGPA: High Precision.' },
-    { query: 'analyze --skills', output: 'Processing... Technical Stack identified: Python, ML, Neural Networks, Power BI, SQL, C++, Java.' },
-    { query: 'status --system', output: 'System_v1.0.4 operating at peak efficiency. All nodes synchronized.' }
+    { query: 'cat harshita_profile.json', output: '{ "name": "Harshita Gour", "role": "Full Stack & Data Science", "focus": "Web Development / Machine Learning" }' },
+    { query: 'run academic_info.sh', output: 'Fetching records... [LPU / BTech CSE] status: Excellent. Focus: General Engineering.' },
+    { query: 'list --skills', output: 'Technical Stack: Python, JavaScript, React, SQL, C++, Java, Power BI.' },
+    { query: 'status --check', output: 'Portfolio version 1.0 operating normally. Everything looks good!' }
 ];
 
 export default function Terminal() {
@@ -46,8 +46,8 @@ export default function Terminal() {
     }, [history, displayedQuery]);
 
     return (
-        <section className="container" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
-            <span className="section-label">SYSTEM_TERMINAL / QUERY_BY_RESEARCHER</span>
+        <section className="container" id="about" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
+            <span className="section-label">IDENTITY_TERMINAL</span>
 
             <div
                 className="data-card"
@@ -121,7 +121,7 @@ export default function Terminal() {
             </div>
 
             <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'flex-end', opacity: 0.2 }}>
-                <span className="mono" style={{ fontSize: '10px' }}>LOG_STATE: BROADCASTING_LIVE</span>
+                <span className="mono" style={{ fontSize: '10px' }}>STATUS: ONLINE</span>
             </div>
         </section>
     );

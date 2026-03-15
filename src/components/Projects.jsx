@@ -8,29 +8,29 @@ const projects = [
     {
         id: '01',
         title: 'ANIME RECOMMENDER',
-        category: 'RECSYS_&_VIZ',
+        category: 'DATA_VIZ',
         icon: <BarChart2 size={40} />,
         image: animeViz,
-        description: 'Advanced hybrid recommendation engine utilizing content-based and collaborative filtering with deep Power BI analytical synthesis.',
-        insight: 'Achieved high-precision personalization using TruncatedSVD dimensionality reduction.',
+        description: 'A recommendation system built with Python and Power BI to analyze and suggest anime content based on user preferences.',
+        insight: 'Personalized results using collaborative filtering.',
         tech: ['Python', 'Power BI', 'Scikit-learn', 'SciPy']
     },
     {
         id: '02',
         title: 'CPU SCHEDULER',
-        category: 'ALGORITHMIC',
+        category: 'SYSTEMS',
         icon: <Activity size={40} />,
-        description: 'Energy-efficient CPU scheduling designed for massive data-center workload distribution.',
-        insight: '12% Energy efficiency gain.',
+        description: 'A C++ simulation of CPU scheduling algorithms to optimize performance and resource allocation.',
+        insight: 'Optimized response time across processes.',
         tech: ['C++', 'Multithreading', 'Kernel']
     },
     {
         id: '03',
         title: 'NEXUS SHOOTER',
-        category: 'ENGINE_VIZ',
+        category: 'SIMULATION',
         icon: <BarChart2 size={40} />,
-        description: 'High-performance physics engine designed for high-velocity data interaction visualization.',
-        insight: '10k+ concurrent active particles.',
+        description: 'An interactive physics-based simulation created using JavaScript and HTML5 Canvas.',
+        insight: 'Smooth rendering of 10,000+ particles.',
         tech: ['JS', 'Canvas', 'Physics']
     },
     {
@@ -61,8 +61,8 @@ export default function Projects() {
 
     if (isMobile) {
         return (
-            <div className="container" style={{ padding: '5vh 0' }}>
-                <span className="section-label">SELECTED_R&D_SHOWCASE</span>
+            <div className="container" id="projects" style={{ padding: '5vh 0' }}>
+                <span className="section-label">FEATURED PROJECTS</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                     {projects.map((project, idx) => (
                         <div
@@ -89,7 +89,7 @@ export default function Projects() {
                             <p style={{ fontSize: '1rem', opacity: 0.6, lineHeight: 1.4 }}>{project.description}</p>
 
                             <div style={{ borderTop: '1px solid rgba(238, 237, 228, 0.05)', paddingTop: '1rem' }}>
-                                <span className="section-label" style={{ fontSize: '8px', marginBottom: '0.5rem' }}>CRITICAL_INSIGHT</span>
+                                <span className="section-label" style={{ fontSize: '8px', marginBottom: '0.5rem' }}>KEY ACHIEVEMENT</span>
                                 <p className="mono" style={{ fontSize: '11px', color: 'var(--brand-orange)' }}>» {project.insight}</p>
                             </div>
 
@@ -106,12 +106,12 @@ export default function Projects() {
     }
 
     return (
-        <div style={{ height: '300vh' }} ref={targetRef} className="dot-grid desktop-only">
+        <div style={{ height: '300vh' }} id="projects" ref={targetRef} className="dot-grid desktop-only">
             <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
 
                 {/* Section Title - Stays static on the left */}
                 <div style={{ position: 'absolute', top: '10vh', left: '6vw', zIndex: 100 }}>
-                    <span className="section-label">SELECTED_R&D_SHOWCASE</span>
+                    <span className="section-label">FEATURED PROJECTS</span>
                     <h2 style={{ fontSize: '12.8px', opacity: 0.5, marginTop: '1rem' }}>[ SCROLL_TO_NAVIGATE ]</h2>
                 </div>
 
@@ -165,7 +165,7 @@ export default function Projects() {
                                     <div style={{ color: 'var(--brand-orange)', opacity: 0.6 }}><div style={{ marginBottom: '2rem' }}>{project.icon}</div></div>
                                 )}
                                 <div>
-                                    <span className="section-label" style={{ fontSize: '9px', marginBottom: '0.5rem' }}>TECH_STACK</span>
+                                    <span className="section-label" style={{ fontSize: '9px', marginBottom: '0.5rem' }}>TECHNOLOGIES</span>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
                                         {project.tech.map(t => (
                                             <span key={t} className="mono" style={{ fontSize: '10px', background: 'rgba(255, 85, 0, 0.1)', color: 'var(--brand-orange)', padding: '2px 8px' }}>{t}</span>
@@ -188,7 +188,7 @@ export default function Projects() {
 
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
                                     <div>
-                                        <span className="section-label" style={{ fontSize: '9px', marginBottom: '0.5rem' }}>CRITICAL_INSIGHT</span>
+                                        <span className="section-label" style={{ fontSize: '9px', marginBottom: '0.5rem' }}>KEY ACHIEVEMENT</span>
                                         <p className="mono" style={{ fontSize: '12px', color: 'var(--brand-orange)' }}>» {project.insight}</p>
                                     </div>
 
@@ -229,4 +229,3 @@ export default function Projects() {
         </div>
     );
 }
-

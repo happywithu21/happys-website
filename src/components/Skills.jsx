@@ -2,25 +2,25 @@ import { motion } from 'framer-motion';
 
 const skillCategories = [
     {
-        title: 'COMPUTATIONAL THEORY',
-        skills: ['Python / PyTorch', 'Machine Learning Algorithms', 'Big Data Engineering', 'Statistical Analysis']
+        title: 'PROGRAMMING & LOGIC',
+        skills: ['Python / JavaScript', 'Java / C++', 'Data Structures', 'Algorithms']
     },
     {
-        title: 'MODELING & ARCHITECTURE',
-        skills: ['Neural Network Design', 'Predictive Modeling', 'SQL / NoSQL Databases', 'ETL Pipelines']
+        title: 'WEB & DATA SYSTEMS',
+        skills: ['React / Frontend', 'Node.js / Express', 'SQL / NoSQL (MongoDB)', 'Machine Learning']
     },
     {
-        title: 'ANALYTICAL VISUALIZATION',
-        skills: ['Insight Discovery', 'Tableau / BI Tools', 'Interactive Data Storytelling', 'Technical Documentation']
+        title: 'TOOLS & DATA VIZ',
+        skills: ['Vite / Git / GitHub', 'Power BI / Tableau', 'Data Storytelling', 'Technical Writing']
     }
 ];
 
 export default function Skills() {
     return (
-        <section className="container" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
-            <span className="section-label">TECHNICAL_ARSENAL</span>
+        <section className="container" id="skills" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
+            <span className="section-label">TECHNICAL SKILLS</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', marginBottom: 'clamp(3rem, 6vw, 6rem)', maxWidth: '800px' }}>
-                Translating complex datasets into <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>strategic intelligence.</span>
+                Bridging the gap between code and <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>meaningful insights.</span>
             </h2>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2vw' }}>
@@ -34,7 +34,7 @@ export default function Skills() {
                         className="data-card"
                     >
                         <div className="mono" style={{ fontSize: '11px', color: 'var(--brand-orange)', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between' }}>
-                            <span>SK_CAT_{idx + 1}</span>
+                            <span>SKILLSET_0{idx + 1}</span>
                             <span style={{ opacity: 0.3 }}>00{idx + 1}</span>
                         </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem', letterSpacing: '-0.02em' }}>{cat.title}</h3>

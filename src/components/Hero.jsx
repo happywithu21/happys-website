@@ -36,23 +36,23 @@ export default function Hero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <span className="section-label">IDENTITY_SYSTEM / 001</span>
+                    <span className="section-label">INTRODUCTION</span>
                     <h1 style={{ marginBottom: '2rem' }}>
                         HARSHITA<br />
                         <span style={{ color: 'var(--brand-orange)' }}>GOUR.</span>
                     </h1>
                     <p style={{ fontSize: '1.1rem', lineHeight: 1.6, maxWidth: '500px', opacity: 0.8 }}>
-                        Data Scientist & BTech CSE student specializing in architecting predictive models and extracting actionable intelligence from multi-dimensional datasets.
+                        Full Stack Developer & Data Science student at LPU, passionate about building high-performance web applications and solving complex data problems.
                     </p>
 
                     <div style={{ marginTop: '3rem', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                         <div>
-                            <span className="mono" style={{ fontSize: '10px', opacity: 0.4, display: 'block', marginBottom: '0.5rem' }}>CURRENT_LOCATION</span>
-                            <span className="mono" style={{ fontSize: '12px' }}>PUNJAB [LPU]</span>
+                            <span className="mono" style={{ fontSize: '10px', opacity: 0.4, display: 'block', marginBottom: '0.5rem' }}>LOCATION</span>
+                            <span className="mono" style={{ fontSize: '12px' }}>PUNJAB, INDIA</span>
                         </div>
                         <div>
-                            <span className="mono" style={{ fontSize: '10px', opacity: 0.4, display: 'block', marginBottom: '0.5rem' }}>SYSTEM_SPECIALTY</span>
-                            <span className="mono" style={{ fontSize: '12px' }}>DATA_SCIENCE / ML</span>
+                            <span className="mono" style={{ fontSize: '10px', opacity: 0.4, display: 'block', marginBottom: '0.5rem' }}>FOCUS</span>
+                            <span className="mono" style={{ fontSize: '12px' }}>WEB & DATA SCIENCE</span>
                         </div>
                     </div>
                 </motion.div>
@@ -65,14 +65,14 @@ export default function Hero() {
                     className="data-card"
                     style={{ marginTop: '2rem' }}
                 >
-                    <span className="section-label">MODEL_PARAMETERS</span>
+                    <span className="section-label">TECHNICAL OVERVIEW</span>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                         {[
-                            { label: 'STATUS', value: 'ACTIVE_DEVELOPMENT', color: '#00ff00' },
-                            { label: 'CORE_STACK', value: 'PYTHON / ML / SQL', color: 'var(--text-main)' },
-                            { label: 'MODEL_ACCURACY', value: '0.982_OPTIMAL', color: 'var(--brand-orange)' },
-                            { label: 'DATA_STREAM', value: 'SYNCHRONIZED', color: 'var(--text-main)' }
+                            { label: 'STATUS', value: 'OPEN FOR WORK', color: '#00ff00' },
+                            { label: 'STACK', value: 'REACT / PYTHON / SQL', color: 'var(--text-main)' },
+                            { label: 'DOMAIN', value: 'SOFTWARE ENG', color: 'var(--brand-orange)' },
+                            { label: 'AVAILABILITY', value: 'REMOTE / HYBRID', color: 'var(--text-main)' }
                         ].map((item, i) => (
                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(238,237,228,0.1)', paddingBottom: '0.5rem', gap: '1rem' }}>
                                 <span className="mono" style={{ fontSize: '10px', opacity: 0.5 }}>{item.label}</span>
