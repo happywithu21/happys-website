@@ -85,20 +85,23 @@ export default function Projects() {
                 </div>
 
                 <div style={{ 
-                    display: 'flex', 
-                    justifyContent: 'center', 
-                    alignItems: 'center',
                     position: 'relative',
                     width: '100%',
-                    height: '60vh'
+                    height: '65vh'
                 }}>
                     <motion.div 
-                        animate={{ x: `-${index * 540}px` }} 
-                        transition={{ type: "spring", stiffness: 80, damping: 20 }}
+                        initial={false}
+                        animate={{ 
+                            x: `calc(50vw - 250px - ${index * 540}px)` 
+                        }}
+                        transition={{ type: "spring", stiffness: 100, damping: 20 }}
                         style={{ 
                             display: 'flex', 
                             gap: '40px',
-                            padding: '0 calc(50% - 250px)', 
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            padding: '20px 0'
                         }}
                     >
                         {projects.map((project, idx) => (
@@ -130,23 +133,23 @@ function ProjectCard({ project, isActive }) {
     return (
         <motion.div
             animate={{ 
-                scale: isActive ? 1.1 : 0.85,
-                opacity: isActive ? 1 : 0.2,
+                scale: isActive ? 1.15 : 0.8,
+                opacity: isActive ? 1 : 0.15,
                 boxShadow: isActive ? `0 0 80px ${project.glow}` : '0 0 0px transparent'
             }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
             style={{
                 width: '500px',
                 flexShrink: 0,
                 background: 'rgba(238, 237, 228, 0.02)',
-                border: isActive ? '1.5px solid var(--brand-orange)' : '1px solid rgba(255,255,255,0.05)',
+                border: isActive ? '2px solid var(--brand-orange)' : '1px solid rgba(255,255,255,0.05)',
                 borderRadius: '24px',
                 padding: '2.5rem',
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '1.5rem',
-                backdropFilter: isActive ? 'blur(0px)' : 'blur(8px)',
+                backdropFilter: isActive ? 'blur(0px)' : 'blur(10px)',
             }}
         >
             <div style={{ 
