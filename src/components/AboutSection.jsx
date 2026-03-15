@@ -22,7 +22,7 @@ export default function AboutSection() {
 
     return (
         <section className="container" id="about" style={{ padding: '8vh 0' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4vw', alignItems: 'center' }}>
+            <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4vw', alignItems: 'center' }}>
                 
                 {/* Left: Phrasing & Narrative */}
                 <motion.div
