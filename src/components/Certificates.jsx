@@ -38,15 +38,23 @@ export default function Certificates() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="container" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
-            <div style={{ marginBottom: 'clamp(3rem, 6vw, 6rem)' }}>
-                <span className="section-label">CREDENTIAL_VAULT / 003</span>
-                <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', margin: 0 }}>
-                    Verified <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>Academic & Technical</span> Credentials.
+        <section className="container" id="certificates" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 6vw, 6rem)' }}>
+                <span className="section-label" style={{ marginBottom: '1rem' }}>MY CERTIFICATES</span>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', margin: '0 auto', maxWidth: '900px', lineHeight: 1.2 }}>
+                    Verified <span style={{ color: 'var(--brand-orange)' }}>Academic & Technical</span> Credentials.
                 </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5vw', marginBottom: '4rem' }}>
+            <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+                gap: '1.5vw', 
+                marginBottom: '4rem',
+                maxWidth: '1200px',
+                margin: '0 auto 4rem auto',
+                justifyContent: 'center'
+            }}>
                 {certs.map((cert) => (
                     <motion.div
                         key={cert.id}
@@ -55,11 +63,11 @@ export default function Certificates() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="data-card"
-                        style={{ position: 'relative', overflow: 'hidden' }}
+                        style={{ position: 'relative', overflow: 'hidden', height: '100%' }}
                     >
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
                             <div style={{ color: 'var(--brand-orange)' }}><Award size={32} strokeWidth={1.5} /></div>
-                            <span className="mono" style={{ fontSize: '10px', opacity: 0.3 }}>REG_ID_{cert.id}</span>
+                            <span className="mono" style={{ fontSize: '10px', opacity: 0.3 }}>ID_0{cert.id}</span>
                         </div>
 
                         <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem', letterSpacing: '-0.01em' }}>{cert.title}</h3>
@@ -67,7 +75,7 @@ export default function Certificates() {
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2rem' }}>
                             <CheckCircle size={12} color="#00ff00" />
-                            <span className="mono" style={{ fontSize: '9px', color: '#00ff00' }}>{cert.status}</span>
+                            <span className="mono" style={{ fontSize: '9px', color: '#00ff00' }}>{cert.status.replace('_', ' ')}</span>
                         </div>
 
                         <a
@@ -88,7 +96,7 @@ export default function Certificates() {
                             }}
                         >
                             <FileText size={14} />
-                            VIEW_SOURCE_PDF
+                            VIEW PDF
                         </a>
                     </motion.div>
                 ))}
@@ -114,7 +122,7 @@ export default function Certificates() {
                         fontWeight: 900
                     }}
                 >
-                    EXPLORE_FULL_CREDENTIAL_LIST <Plus size={18} />
+                    VIEW ALL CREDENTIALS <Plus size={18} />
                 </button>
             </div>
 
