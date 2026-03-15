@@ -62,7 +62,7 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="data-card"
+                    className="data-card glow-hero"
                     style={{ marginTop: '2rem' }}
                 >
                     <span className="section-label">TECHNICAL OVERVIEW</span>
