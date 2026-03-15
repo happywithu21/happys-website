@@ -56,49 +56,87 @@ body {
   border: 1px solid var(--card-border);
 }
 
-/* Intensive Glow & Rim Light System */
+/* Dynamic Revolving Border & Glow System */
 .data-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(238, 237, 228, 0.1);
+  background: #0a0a0a;
   padding: 2rem;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  border-radius: 12px;
+  /* Hidden overflow to clip the rotating gradient */
   overflow: hidden;
-  border-radius: 12px; /* Adding slight radius for better glow distribution */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Orange Glow - High Visibility */
+/* Base content layer to sit above the gradient */
+.data-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* The Revolving Gradient Layer */
+.data-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent, 
+    var(--glow-primary, var(--brand-orange)), 
+    var(--glow-secondary, #c084fc), 
+    transparent 30%
+  );
+  animation: rotate 4s linear infinite;
+  z-index: 1;
+}
+
+/* Dark center mask to create the "border" effect */
+.data-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px; /* Border thickness */
+  background: #0a0a0a;
+  border-radius: 10px;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Persistent Outer Glow */
 .glow-orange {
-  border-color: rgba(255, 85, 0, 0.3);
-  box-shadow: 
-    0 0 30px -10px rgba(255, 85, 0, 0.4),
-    inset 0 0 15px rgba(255, 85, 0, 0.1);
+  --glow-primary: var(--brand-orange);
+  --glow-secondary: #c084fc;
+  box-shadow: 0 0 25px -5px rgba(255, 85, 0, 0.3);
+}
+
+.glow-purple {
+  --glow-primary: #c084fc;
+  --glow-secondary: #3b82f6; /* Blue secondary for certificates */
+  box-shadow: 0 0 25px -5px rgba(192, 132, 252, 0.3);
+}
+
+/* Intensify on Hover */
+.data-card:hover {
+  transform: translateY(-8px);
 }
 
 .glow-orange:hover {
-  border-color: rgba(255, 85, 0, 0.7);
-  box-shadow: 
-    0 0 50px -5px rgba(255, 85, 0, 0.6),
-    inset 0 0 20px rgba(255, 85, 0, 0.2);
-  background: rgba(255, 85, 0, 0.03);
-}
-
-/* Purple Glow - High Visibility (Ref: Akshdeep Singh) */
-.glow-purple {
-  border-color: rgba(192, 132, 252, 0.3);
-  box-shadow: 
-    0 0 30px -10px rgba(192, 132, 252, 0.4),
-    inset 0 0 15px rgba(192, 132, 252, 0.1);
+  box-shadow: 0 0 45px -5px rgba(255, 85, 0, 0.5);
 }
 
 .glow-purple:hover {
-  border-color: rgba(192, 132, 252, 0.7);
-  box-shadow: 
-    0 0 50px -5px rgba(192, 132, 252, 0.6),
-    inset 0 0 20px rgba(192, 132, 252, 0.2);
-  background: rgba(192, 132, 252, 0.03);
+  box-shadow: 0 0 45px -5px rgba(192, 132, 252, 0.5);
+}
+
+.data-card:hover::after {
+  background: rgba(15, 15, 15, 0.95);
 }
 
 .section-label {
