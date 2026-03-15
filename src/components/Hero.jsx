@@ -61,13 +61,45 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
+                    whileHover={{ 
+                        rotateY: 5, 
+                        rotateX: -5,
+                        transition: { duration: 0.3 }
+                    }}
                     transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="data-card glow-hero"
-                    style={{ marginTop: '2rem' }}
+                    style={{ marginTop: '2rem', perspective: '1000px', transformStyle: 'preserve-3d' }}
                 >
                     <span className="section-label">TECHNICAL OVERVIEW</span>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                    {/* Interactive Background Particles */}
+                    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1 }}>
+                        {[...Array(6)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                animate={{ 
+                                    y: [0, -40, 0],
+                                    x: [0, Math.random() * 20 - 10, 0],
+                                    opacity: [0.1, 0.4, 0.1] 
+                                }}
+                                transition={{ 
+                                    duration: 3 + Math.random() * 2, 
+                                    repeat: Infinity,
+                                    delay: Math.random() * 2
+                                }}
+                                style={{ 
+                                    position: 'absolute',
+                                    width: '2px', height: '2px',
+                                    borderRadius: '50%',
+                                    background: i % 2 === 0 ? 'var(--brand-orange)' : '#00f2ff',
+                                    left: `${Math.random() * 100}%`,
+                                    top: `${Math.random() * 100}%`
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', position: 'relative', zIndex: 2 }}>
                         {[
                             { label: 'STATUS', value: 'OPEN FOR WORK', color: '#00ff00' },
                             { label: 'STACK', value: 'PYTHON / SQL / REACT', color: 'var(--text-main)' },
@@ -82,20 +114,20 @@ export default function Hero() {
                     </div>
 
                     {/* Live Data Science Visualizer */}
-                    <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', border: '1px solid rgba(255,85,0,0.1)' }}>
+                    <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(0,0,0,0.5)', borderRadius: '8px', border: '1px solid rgba(255,85,0,0.2)', position: 'relative', zIndex: 2 }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                            <span className="mono" style={{ fontSize: '9px', opacity: 0.4 }}>SYSTEM_LOG_v2.0</span>
+                            <span className="mono" style={{ fontSize: '9px', opacity: 0.4 }}>NEURAL_ENGINE_ACTIVE</span>
                             <div style={{ display: 'flex', gap: '4px' }}>
                                 <div className="pulse" style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#00ff00' }}></div>
-                                <div className="pulse" style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#00ff00', animationDelay: '0.2s' }}></div>
-                                <div className="pulse" style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#00ff00', animationDelay: '0.4s' }}></div>
+                                <div className="pulse" style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#ff5500', animationDelay: '0.2s' }}></div>
+                                <div className="pulse" style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#00f2ff', animationDelay: '0.4s' }}></div>
                             </div>
                         </div>
 
                         <div className="mono" style={{ fontSize: '10px', height: '60px', overflow: 'hidden', opacity: 0.6, position: 'relative' }}>
                             <motion.div
-                                animate={{ y: [-100, 0] }}
-                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                                animate={{ y: [-150, 0] }}
+                                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                                 style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}
                             >
                                 {[
@@ -106,36 +138,28 @@ export default function Hero() {
                                     '> SCRAPING_REAL_TIME_TRENDS',
                                     '> UPDATING_BRAIN_LATENCY...',
                                     '> PARSING_SYNTACTIC_SCHEMA',
-                                    '> VECTORIZING_USER_INPUT'
+                                    '> VECTORIZING_USER_INPUT',
+                                    '> CROSS_VALIDATION_ACTIVE',
+                                    '> REINFORCEMENT_LEARNING_RUNNING'
                                 ].map((log, i) => (
-                                    <span key={i} style={{ color: i % 2 === 0 ? 'var(--brand-orange)' : 'var(--text-main)' }}>{log}</span>
-                                ))}
-                                {/* Repeat for seamless scroll */}
-                                {[
-                                    '> INITIALIZING_NEURAL_WEIGHTS...',
-                                    '> FETCHING_DATASET_CLUSTER_09',
-                                    '> OPTIMIZING_GRADIENT_DESCENT',
-                                    '> MODEL_RECALL: 0.982',
-                                    '> SCRAPING_REAL_TIME_TRENDS'
-                                ].map((log, i) => (
-                                    <span key={i + 10} style={{ color: i % 2 === 0 ? 'var(--brand-orange)' : 'var(--text-main)' }}>{log}</span>
+                                    <span key={i} style={{ color: i % 3 === 0 ? 'var(--brand-orange)' : i % 3 === 1 ? '#00f2ff' : 'var(--text-main)' }}>{log}</span>
                                 ))}
                             </motion.div>
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '1.5rem', height: '40px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                        <svg width="100%" height="40" style={{ opacity: 0.3 }}>
+                    <div style={{ marginTop: '1.5rem', height: '40px', width: '100%', position: 'relative', overflow: 'hidden', zIndex: 2 }}>
+                        <svg width="100%" height="40" style={{ opacity: 0.5 }}>
                             <motion.path
                                 d="M 0 20 Q 25 5 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20"
                                 fill="transparent"
                                 stroke="var(--brand-orange)"
-                                strokeWidth="1"
+                                strokeWidth="2"
                                 animate={{ x: [-100, 0] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                             />
                         </svg>
-                        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', background: 'var(--brand-orange)', opacity: 0.2 }} />
+                        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', background: 'var(--brand-orange)', opacity: 0.3 }} />
                     </div>
                 </motion.div>
 

@@ -140,34 +140,72 @@ body {
   background: rgba(15, 15, 15, 0.95);
 }
 
-/* Hero Specific Multi-Layered Glow */
+/* Nebula Spectrum Glow System (MORE means MOREEE) */
 .glow-hero {
-  --glow-primary: var(--brand-orange);
-  --glow-secondary: #00f2ff; /* Cyber Cyan */
+  --glow-primary: #ff5500;
+  --glow-secondary: #00f2ff;
+  --glow-tertiary: #c084fc;
+  border-color: rgba(255, 85, 0, 0.4) !important;
+  background: rgba(10, 10, 10, 0.9) !important;
   box-shadow: 
-    0 0 20px -5px rgba(255, 85, 0, 0.4),
-    0 0 40px -10px rgba(0, 242, 255, 0.2);
-  animation: hero-breathing 4s infinite ease-in-out;
+    0 0 30px -5px rgba(255, 85, 0, 0.5),
+    0 0 60px -10px rgba(0, 242, 255, 0.3),
+    0 0 100px -20px rgba(192, 132, 252, 0.2);
+  animation: nebula-aura 6s infinite ease-in-out;
 }
 
-@keyframes hero-breathing {
+@keyframes nebula-aura {
   0%, 100% { 
     box-shadow: 
-      0 0 25px -5px rgba(255, 85, 0, 0.4),
-      0 0 45px -10px rgba(0, 242, 255, 0.2);
+      0 0 30px -5px rgba(255, 85, 0, 0.5),
+      0 0 60px -10px rgba(0, 242, 255, 0.3),
+      -20px -20px 100px -20px rgba(192, 132, 252, 0.2);
   }
-  50% { 
+  33% {
     box-shadow: 
-      0 0 50px -5px rgba(255, 85, 0, 0.6),
-      0 0 80px -10px rgba(0, 242, 255, 0.3);
+      0 0 50px -5px rgba(0, 242, 255, 0.5),
+      20px 20px 80px -10px rgba(255, 85, 0, 0.3),
+      0 0 120px -20px rgba(192, 132, 252, 0.4);
   }
+  66% {
+    box-shadow: 
+      -20px 20px 60px -5px rgba(192, 132, 252, 0.5),
+      0 0 100px -10px rgba(0, 242, 255, 0.3),
+      20px -20px 140px -20px rgba(255, 85, 0, 0.4);
+  }
+}
+
+/* Moving Scan Line */
+.glow-hero::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    transparent,
+    rgba(255, 85, 0, 0.05),
+    rgba(255, 85, 0, 0.2),
+    rgba(255, 85, 0, 0.05),
+    transparent
+  );
+  animation: scan-line 4s infinite linear;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes scan-line {
+  0% { top: -100%; }
+  100% { top: 200%; }
 }
 
 .glow-hero:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-12px) scale(1.03);
   box-shadow: 
-    0 0 60px -5px rgba(255, 85, 0, 0.7),
-    0 0 100px -10px rgba(0, 242, 255, 0.4);
+    0 0 80px -5px rgba(255, 85, 0, 0.8),
+    0 0 120px -10px rgba(0, 242, 255, 0.5),
+    0 0 150px -20px rgba(192, 132, 252, 0.4);
 }
 
 .section-label {
