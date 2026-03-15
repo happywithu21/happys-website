@@ -34,8 +34,6 @@ const projects = [
     }
 ];
 
-const loopProjects = [...projects, ...projects, ...projects];
-
 export default function Projects() {
     return (
         <section id="work" style={{ 
@@ -57,15 +55,16 @@ export default function Projects() {
                     <motion.div 
                         className="marquee-track"
                         animate={{ 
-                            x: ["0%", "-100%"] 
+                            x: ["0%", "-50%"] 
                         }}
                         transition={{ 
-                            duration: 40, 
+                            duration: 15, 
                             repeat: Infinity, 
-                            ease: "linear" 
+                            repeatType: "reverse",
+                            ease: "easeInOut"
                         }}
                     >
-                        {loopProjects.map((project, idx) => (
+                        {projects.map((project, idx) => (
                             <ProjectCard key={idx} project={project} />
                         ))}
                     </motion.div>
@@ -77,15 +76,15 @@ export default function Projects() {
                     width: 100%;
                     display: flex;
                     overflow: hidden;
-                    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
                 }
                 .marquee-track {
                     display: flex;
                     gap: 30px;
-                    padding: 20px;
+                    padding: 20px 6vw;
                 }
                 .project-card-mini {
-                    width: 450px;
+                    width: clamp(300px, 40vw, 500px);
                     flex-shrink: 0;
                     background: rgba(238, 237, 228, 0.03);
                     border: 1px solid rgba(238, 237, 228, 0.08);
