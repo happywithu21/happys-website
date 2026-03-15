@@ -76,7 +76,7 @@ export default function Projects() {
                             }}
                         >
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span className="mono" style={{ fontSize: '10px', opacity: 0.3 }}>INDEX_00{idx + 1}</span>
+                                <span className="mono" style={{ fontSize: '10px', opacity: 0.3 }}>PROJECT_00{idx + 1}</span>
                                 <span className="mono" style={{ fontSize: '10px', color: 'var(--brand-orange)' }}>{project.category}</span>
                             </div>
 
@@ -112,7 +112,7 @@ export default function Projects() {
                 {/* Section Title - Stays static on the left */}
                 <div style={{ position: 'absolute', top: '10vh', left: '6vw', zIndex: 100 }}>
                     <span className="section-label">FEATURED PROJECTS</span>
-                    <h2 style={{ fontSize: '12.8px', opacity: 0.5, marginTop: '1rem' }}>[ SCROLL_TO_NAVIGATE ]</h2>
+                    <h2 style={{ fontSize: '12.8px', opacity: 0.5, marginTop: '1rem' }}>[ SCROLL TO EXPLORE ]</h2>
                 </div>
 
                 {/* Horizontal Moving Content */}
@@ -143,7 +143,7 @@ export default function Projects() {
                                     letterSpacing: '0.5em'
                                 }}
                             >
-                                RECORD_INDEX_00{idx + 1}
+                                PROJECT_00{idx + 1}
                             </div>
 
                             {/* Icon & Category Box / Project Image */}
@@ -165,7 +165,7 @@ export default function Projects() {
                                     <div style={{ color: 'var(--brand-orange)', opacity: 0.6 }}><div style={{ marginBottom: '2rem' }}>{project.icon}</div></div>
                                 )}
                                 <div>
-                                    <span className="section-label" style={{ fontSize: '9px', marginBottom: '0.5rem' }}>TECHNOLOGIES</span>
+                                    <span className="section-label" style={{ fontSize: '9px', marginBottom: '0.5rem' }}>TECH STACK</span>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
                                         {project.tech.map(t => (
                                             <span key={t} className="mono" style={{ fontSize: '10px', background: 'rgba(255, 85, 0, 0.1)', color: 'var(--brand-orange)', padding: '2px 8px' }}>{t}</span>

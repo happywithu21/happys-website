@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const commands = [
-    { query: 'cat harshita_profile.json', output: '{ "name": "Harshita Gour", "role": "Full Stack & Data Science", "focus": "Web Development / Machine Learning" }' },
-    { query: 'run academic_info.sh', output: 'Fetching records... [LPU / BTech CSE] status: Excellent. Focus: General Engineering.' },
-    { query: 'list --skills', output: 'Technical Stack: Python, JavaScript, React, SQL, C++, Java, Power BI.' },
-    { query: 'status --check', output: 'Portfolio version 1.0 operating normally. Everything looks good!' }
+    { query: 'Who is Harshita?', output: 'I am a passionate developer and Data Science student at LPU, dedicated to building clean code and meaningful data solutions.' },
+    { query: 'Tell me about her education.', output: 'Currently pursuing a B.Tech in CSE at Lovely Professional University, maintaining a strong focus on core engineering and modern tech.' },
+    { query: 'What are her core skills?', output: 'I specialize in Python, JavaScript, and React, with a strong foundation in SQL, C++, and Data Visualization tools.' },
+    { query: 'Is she open for work?', output: 'Yes! I am currently looking for internship and junior roles in Full Stack Development or Data Science.' }
 ];
 
 export default function Terminal() {
@@ -47,7 +47,7 @@ export default function Terminal() {
 
     return (
         <section className="container" id="about" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
-            <span className="section-label">IDENTITY_TERMINAL</span>
+            <span className="section-label">A QUICK Q&A</span>
 
             <div
                 className="data-card"
@@ -67,7 +67,7 @@ export default function Terminal() {
                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f56' }} />
                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' }} />
                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f' }} />
-                    <span className="mono" style={{ fontSize: '10px', opacity: 0.3, marginLeft: 'auto' }}>harshita@ds-node-01: ~</span>
+                    <span className="mono" style={{ fontSize: '10px', opacity: 0.3, marginLeft: 'auto' }}>harshita@portfolio: ~</span>
                 </div>
 
                 <div
@@ -82,7 +82,7 @@ export default function Terminal() {
                     {history.map((item, i) => (
                         <div key={i} style={{ marginBottom: '1.5rem' }}>
                             <div style={{ display: 'flex', gap: '10px' }}>
-                                <span style={{ color: 'var(--brand-orange)', fontWeight: 900 }}>$</span>
+                                <span style={{ color: 'var(--brand-orange)', fontWeight: 900 }}>●</span>
                                 <span className="mono" style={{ fontSize: '13px' }}>{item.query}</span>
                             </div>
                             <motion.div
@@ -99,7 +99,7 @@ export default function Terminal() {
 
                     {currentIndex < commands.length && (
                         <div style={{ display: 'flex', gap: '10px' }}>
-                            <span style={{ color: 'var(--brand-orange)', fontWeight: 900 }}>$</span>
+                            <span style={{ color: 'var(--brand-orange)', fontWeight: 900 }}>●</span>
                             <span className="mono" style={{ fontSize: '13px' }}>
                                 {displayedQuery}
                                 <motion.span

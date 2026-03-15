@@ -116,12 +116,12 @@ function App() {
           </div>
 
           <div>
-            <span className="section-label">SITE STATUS</span>
+            <span className="section-label">CURRENT STATUS</span>
             <div className="mono" style={{ fontSize: '11px', opacity: 0.4, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <span>[ST] SERVER: OPTIMAL</span>
-              <span>[ST] WORKLOAD: NOMINAL</span>
-              <span>[ST] INTEGRATION: COMPLETE</span>
-              <span>[ST] LOAD TIME: 847MS</span>
+                <span>[ST] SERVER: ONLINE</span>
+                <span>[ST] FOCUS: OPEN FOR WORK</span>
+                <span>[ST] UPDATED: MARCH 2025</span>
+                <span>[ST] HEALTH: EXCELLENT</span>
             </div>
           </div>
 
