@@ -177,7 +177,7 @@ export default function Projects() {
                             {/* Main Content */}
                             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '1rem' }}>
-                                    <h3 style={{ fontSize: 'clamp(2rem, 5vw, 6rem)', fontWeight: 700, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+                                    <h3 style={{ fontSize: 'clamp(1.8rem, 4vw, 5rem)', fontWeight: 700, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
                                         {project.title}
                                     </h3>
                                 </div>

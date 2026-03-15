@@ -29,7 +29,7 @@ export default function AboutSection() {
     return (
         <section className="container" id="about" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: '1rem' }}>About Me</h2>
+                <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: '1rem' }}>About Me</h2>
                 <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: '80px' }}

@@ -18,10 +18,17 @@ const skillCategories = [
 export default function Skills() {
     return (
         <section className="container" id="skills" style={{ padding: 'clamp(5vh, 10vh, 15vh) 0' }}>
-            <span className="section-label">TECHNICAL SKILLS</span>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', marginBottom: 'clamp(3rem, 6vw, 6rem)', maxWidth: '800px' }}>
-                Bridging the gap between code and <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>meaningful insights.</span>
-            </h2>
+            <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 6vw, 6rem)' }}>
+                <span className="section-label" style={{ marginBottom: '1rem' }}>MY SKILLS</span>
+                <h2 style={{ 
+                    fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', 
+                    margin: '0 auto', 
+                    maxWidth: '800px',
+                    lineHeight: 1.2
+                }}>
+                    Bridging the gap between code and <br className="desktop-only" /> <span style={{ color: 'var(--brand-orange)' }}>meaningful insights.</span>
+                </h2>
+            </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2vw' }}>
                 {skillCategories.map((cat, idx) => (
@@ -34,7 +41,7 @@ export default function Skills() {
                         className="data-card"
                     >
                         <div className="mono" style={{ fontSize: '11px', color: 'var(--brand-orange)', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between' }}>
-                            <span>SKILLSET_0{idx + 1}</span>
+                            <span>CATEGORY_0{idx + 1}</span>
                             <span style={{ opacity: 0.3 }}>00{idx + 1}</span>
                         </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem', letterSpacing: '-0.02em' }}>{cat.title}</h3>
