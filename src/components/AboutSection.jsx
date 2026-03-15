@@ -22,6 +22,14 @@ export default function AboutSection() {
 
     return (
         <section className="container" id="about" style={{ padding: '8vh 0' }}>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                <span className="section-label">IDENTIFIER</span>
+                <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 900, textTransform: 'uppercase' }}>
+                    ABOUT <span style={{ color: 'var(--brand-orange)' }}>ME</span>
+                </h2>
+                <div style={{ height: '1px', width: '60px', background: 'var(--brand-orange)', margin: '1rem auto', opacity: 0.5 }} />
+            </div>
+
             <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4vw', alignItems: 'center' }}>
                 
                 {/* Left: Phrasing & Narrative */}

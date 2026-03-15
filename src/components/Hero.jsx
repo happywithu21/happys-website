@@ -22,9 +22,8 @@ export default function Hero() {
 
             <div className="container" style={{
                 zIndex: 10,
-                maxWidth: '1100px',
-                margin: '0 auto',
-                display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                 gap: '4vw',
                 alignItems: 'center',
                 paddingTop: '8vh', /* Reduced from 15vh */
@@ -68,7 +67,7 @@ export default function Hero() {
                         transition: { duration: 0.3 }
                     }}
                     transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-		    className="data-card glow-hero"
+                    className="data-card glow-hero"
                     style={{ marginTop: '2rem', perspective: '1000px', transformStyle: 'preserve-3d' }}
                 >
                     <span className="section-label">TECHNICAL OVERVIEW</span>
