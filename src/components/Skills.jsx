@@ -30,7 +30,14 @@ export default function Skills() {
                 </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2vw' }}>
+            <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+                gap: '2vw',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                justifyContent: 'center'
+            }}>
                 {skillCategories.map((cat, idx) => (
                     <motion.div
                         key={cat.title}
@@ -39,6 +46,7 @@ export default function Skills() {
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="data-card"
+                        style={{ height: '100%' }}
                     >
                         <div className="mono" style={{ fontSize: '11px', color: 'var(--brand-orange)', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between' }}>
                             <span>CATEGORY_0{idx + 1}</span>
