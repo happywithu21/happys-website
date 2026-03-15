@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import animeViz from '../assets/anime_viz.png';
 
@@ -39,86 +39,122 @@ const projects = [
 ];
 
 export default function Projects() {
-    const sectionRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start start", "end end"]
-    });
-
     const [activeIndex, setActiveIndex] = useState(0);
+    const [direction, setDirection] = useState(1);
 
-    // Sync active index with scroll progress
     useEffect(() => {
-        const unsubscribe = scrollYProgress.on("change", (latest) => {
-            const index = Math.min(
-                Math.floor(latest * projects.length),
-                projects.length - 1
-            );
-            setActiveIndex(index);
-        });
-        return () => unsubscribe();
-    }, [scrollYProgress]);
+        const timer = setInterval(() => {
+            nextSlide();
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [activeIndex]);
+
+    const nextSlide = () => {
+        setDirection(1);
+        setActiveIndex((prev) => (prev + 1) % projects.length);
+    };
+
+    const goToSlide = (index) => {
+        setDirection(index > activeIndex ? 1 : -1);
+        setActiveIndex(index);
+    };
 
     return (
-        <section ref={sectionRef} id="projects" style={{ height: `${projects.length * 100}vh`, position: 'relative' }}>
-            <div style={{ position: 'sticky', top: 0, height: '100vh', width: '100%', overflow: 'hidden', background: '#0a0a0a' }}>
-                
-                {/* Background Grid */}
-                <div style={{ 
-                    position: 'absolute', inset: 0, 
-                    backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-                    backgroundSize: '10vw 10vh',
-                    zIndex: 0
-                }} />
+        <section id="projects" style={{ height: '100vh', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
+            <div style={{ 
+                position: 'absolute', inset: 0, 
+                backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px)`,
+                backgroundSize: '10vw 10vh',
+                zIndex: 0
+            }} />
 
-                {/* Floating "PROJECTS" Title */}
-                <div style={{ position: 'absolute', top: '10vh', left: '6vw', zIndex: 5 }}>
-                    <h2 style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 900, opacity: 0.1, color: '#fff', margin: 0 }}>PROJECTS</h2>
-                </div>
+            <div style={{ position: 'absolute', top: '10vh', left: '6vw', zIndex: 10 }}>
+                <h2 style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 900, opacity: 0.05, color: '#fff', margin: 0 }}>PROJECTS</h2>
+            </div>
 
-                {/* Project Stack */}
-                <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {projects.map((project, index) => {
-                        return <ProjectCard key={project.id} project={project} index={index} total={projects.length} scrollYProgress={scrollYProgress} />;
-                    })}
-                </div>
+            <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
+                <AnimatePresence initial={false} custom={direction}>
+                    <ProjectCard 
+                        key={activeIndex}
+                        project={projects[activeIndex]}
+                        index={activeIndex}
+                        direction={direction}
+                    />
+                </AnimatePresence>
+            </div>
 
-                {/* Navigation Controls */}
-                <div style={{ position: 'absolute', bottom: '10vh', left: '0', width: '100%', padding: '0 6vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 100 }}>
-                    {/* Dots */}
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                        {projects.map((_, i) => (
-                            <div key={i} style={{ 
-                                width: '8px', height: '8px', borderRadius: '50%', 
-                                background: activeIndex === i ? 'var(--brand-orange)' : 'rgba(255,255,255,0.2)',
-                                transition: 'all 0.3s ease',
-                                transform: activeIndex === i ? 'scale(1.5)' : 'scale(1)'
-                            }} />
-                        ))}
-                    </div>
+            <div style={{ position: 'absolute', bottom: '8vh', left: '6vw', display: 'flex', gap: '1.2rem', zIndex: 100 }}>
+                {projects.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => goToSlide(i)}
+                        style={{ 
+                            width: activeIndex === i ? '30px' : '8px', 
+                            height: '8px', 
+                            borderRadius: '10px', 
+                            border: 'none',
+                            background: activeIndex === i ? 'var(--brand-orange)' : 'rgba(255,255,255,0.2)',
+                            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                            padding: 0,
+                            cursor: 'pointer'
+                        }} 
+                    />
+                ))}
+            </div>
 
-                    {/* Next Indicator */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', opacity: activeIndex === projects.length - 1 ? 0 : 0.6 }}>
-                        <span className="mono" style={{ fontSize: '12px', letterSpacing: '0.2em' }}>NEXT</span>
-                        <ArrowRight size={20} />
-                    </div>
-                </div>
+            <div 
+                onClick={nextSlide}
+                className="interactive"
+                style={{ 
+                    position: 'absolute', bottom: '8vh', right: '6vw', 
+                    display: 'flex', alignItems: 'center', gap: '1rem', 
+                    opacity: 0.6, zIndex: 100, cursor: 'pointer'
+                }}
+            >
+                <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>NEXT_CASE</span>
+                <ArrowRight size={18} />
             </div>
         </section>
     );
 }
 
-function ProjectCard({ project, index, total, scrollYProgress }) {
-    const start = index / total;
-    const end = (index + 1) / total;
-    
-    // Slide in effect: comes from right
-    const x = useTransform(scrollYProgress, [start - 0.1, start], ["100%", "0%"]);
-    const opacity = useTransform(scrollYProgress, [end, end + 0.1], [1, 0]);
-    const scale = useTransform(scrollYProgress, [end, end + 0.1], [1, 0.9]);
+function ProjectCard({ project, index, direction }) {
+    const variants = {
+        enter: (d) => ({
+            x: d > 0 ? '100%' : '-100%',
+            opacity: 1,
+            filter: 'blur(0px)',
+            scale: 1,
+            zIndex: 2
+        }),
+        center: {
+            x: 0,
+            opacity: 1,
+            filter: 'blur(0px)',
+            scale: 1,
+            zIndex: 2
+        },
+        exit: (d) => ({
+            x: 0,
+            opacity: 0.4,
+            filter: 'blur(20px)',
+            scale: 0.95,
+            zIndex: 1
+        })
+    };
 
     return (
         <motion.div
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+                x: { type: "spring", stiffness: 40, damping: 20 },
+                opacity: { duration: 1.2 },
+                filter: { duration: 1.2 }
+            }}
             style={{
                 position: 'absolute',
                 width: '100%',
@@ -126,78 +162,76 @@ function ProjectCard({ project, index, total, scrollYProgress }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                x,
-                zIndex: index,
                 padding: '0 6vw'
             }}
         >
-            <motion.div 
-                style={{ opacity, scale, width: '100%', maxWidth: '1200px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2vw', alignItems: 'center', position: 'relative' }}
-            >
-                {/* Content Side */}
-                <div style={{ zIndex: 2 }}>
-                    <span className="section-label" style={{ color: 'var(--brand-orange)', marginBottom: '1rem' }}>{project.subtitle}</span>
-                    <h3 style={{ 
-                        fontSize: 'clamp(2rem, 5vw, 5rem)', 
-                        fontWeight: 900, 
-                        lineHeight: 0.9, 
-                        margin: '1rem 0 2rem 0',
-                        textTransform: 'uppercase',
-                        color: '#fff',
-                        position: 'relative',
-                        left: '-2vw'
-                    }}>
+            <div style={{ width: '100%', maxWidth: '1200px', display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 1.2fr', gap: '4vw', alignItems: 'center' }}>
+                <div style={{ pointerEvents: 'auto' }}>
+                    <motion.span 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="section-label" 
+                        style={{ color: 'var(--brand-orange)', marginBottom: '1.5rem' }}
+                    >
+                        {project.subtitle}
+                    </motion.span>
+                    
+                    <motion.h3 
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5, type: "spring" }}
+                        style={{ 
+                            fontSize: 'clamp(2.5rem, 6vw, 6rem)', 
+                            fontWeight: 900, 
+                            lineHeight: 0.9, 
+                            margin: '1.5rem 0 2.5rem 0',
+                            textTransform: 'uppercase',
+                            color: '#fff',
+                            letterSpacing: '-0.04em'
+                        }}
+                    >
                         {project.title.split(' ').map((word, i) => (
                             <span key={i} style={{ display: 'block' }}>{word}</span>
                         ))}
-                    </h3>
+                    </motion.h3>
                     
-                    <p style={{ fontSize: '1.2rem', opacity: 0.6, maxWidth: '400px', lineHeight: 1.6, marginBottom: '3rem' }}>
-                        {project.description}
-                    </p>
-
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        style={{
-                            padding: '1.2rem 2.5rem',
-                            background: '#fff',
-                            color: '#000',
-                            border: 'none',
-                            borderRadius: '4px',
-                            fontWeight: 700,
-                            textTransform: 'uppercase',
-                            fontSize: '12px',
-                            letterSpacing: '0.1em',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '10px'
-                        }}
+                    <motion.p 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.6 }}
+                        transition={{ delay: 0.7 }}
+                        style={{ fontSize: '1.1rem', maxWidth: '450px', lineHeight: 1.7, marginBottom: '3.5rem' }}
                     >
-                        View Project <ArrowUpRight size={18} />
-                    </motion.button>
+                        {project.description}
+                    </motion.p>
+
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.8 }}
+                        style={{ display: 'flex', gap: '1rem' }}
+                    >
+                        {project.tech.map((t, i) => (
+                            <span key={i} className="mono" style={{ fontSize: '10px', border: '1px solid rgba(255,255,255,0.1)', padding: '4px 12px', borderRadius: '4px' }}>{t}</span>
+                        ))}
+                    </motion.div>
                 </div>
 
-                {/* Image Side */}
-                <div style={{ position: 'relative', height: '60vh', overflow: 'hidden', borderRadius: '12px' }}>
+                <motion.div 
+                    initial={{ opacity: 0, scale: 1.1, x: 50 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{ delay: 0.6 }}
+                    style={{ position: 'relative', height: '65vh', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 40px 100px rgba(0,0,0,0.5)' }}
+                >
                     <div style={{ 
                         width: '100%', height: '100%', 
                         backgroundImage: `url(${project.image})`,
                         backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        filter: 'grayscale(0.2) contrast(1.1)'
+                        backgroundPosition: 'center'
                     }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(45deg, rgba(0,0,0,0.6), transparent)' }} />
-                </div>
-
-                {/* Big ID Background */}
-                <div style={{ 
-                    position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-                    fontSize: '30rem', fontWeight: 900, opacity: 0.03, color: '#fff', zIndex: -1, pointerEvents: 'none'
-                }}>
-                    {project.id}
-                </div>
-            </motion.div>
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }} />
+                </motion.div>
+            </div>
         </motion.div>
     );
 }
