@@ -42,7 +42,7 @@ export default function Hero() {
                         <span style={{ color: 'var(--brand-orange)' }}>GOUR.</span>
                     </h1>
                     <p style={{ fontSize: '1.1rem', lineHeight: 1.6, maxWidth: '500px', opacity: 0.8 }}>
-                        Full Stack Developer & Data Science student at LPU, passionate about building high-performance web applications and solving complex data problems.
+                        Data Science student & Full Stack Developer at LPU, passionate about building intelligent data solutions and solving complex engineering problems.
                     </p>
 
                     <div style={{ marginTop: '3rem', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
@@ -52,7 +52,7 @@ export default function Hero() {
                         </div>
                         <div>
                             <span className="mono" style={{ fontSize: '10px', opacity: 0.4, display: 'block', marginBottom: '0.5rem' }}>FOCUS</span>
-                            <span className="mono" style={{ fontSize: '12px' }}>WEB & DATA SCIENCE</span>
+                            <span className="mono" style={{ fontSize: '12px' }}>DATA SCIENCE & ML</span>
                         </div>
                     </div>
                 </motion.div>
@@ -70,8 +70,8 @@ export default function Hero() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                         {[
                             { label: 'STATUS', value: 'OPEN FOR WORK', color: '#00ff00' },
-                            { label: 'STACK', value: 'REACT / PYTHON / SQL', color: 'var(--text-main)' },
-                            { label: 'DOMAIN', value: 'SOFTWARE ENG', color: 'var(--brand-orange)' },
+                            { label: 'STACK', value: 'PYTHON / SQL / REACT', color: 'var(--text-main)' },
+                            { label: 'DOMAIN', value: 'DATA SCIENCE', color: 'var(--brand-orange)' },
                             { label: 'AVAILABILITY', value: 'REMOTE / HYBRID', color: 'var(--text-main)' }
                         ].map((item, i) => (
                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(238,237,228,0.1)', paddingBottom: '0.5rem', gap: '1rem' }}>
